@@ -20,6 +20,17 @@ const init = async () => {
         }
     });
 
+    server.route({
+        method: 'GET',
+        path:'/{param*}',
+        handler: {
+            directory: {
+                path: './src',
+                listing: false
+            }
+        }
+    });
+
     await server.start();
     console.log('Server running on %s', server.info.uri);
 };
