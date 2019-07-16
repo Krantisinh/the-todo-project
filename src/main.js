@@ -14,14 +14,13 @@ function onAddBtnClick() {
     }
 
     createTask();
+    resetTaskTxt();
 }
 
 function createTask() {
     const div = createElement('div');
     div.innerHTML = taskTxt.value;
     app.appendChild(div);
-
-    resetTaskTxt();
 }
 
 function resetTaskTxt() {
