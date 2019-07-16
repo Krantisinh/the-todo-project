@@ -1,3 +1,17 @@
-#todo-app input {
+
+#todo-app {
+    padding: 1.5rem;
+}
+
+.todo__input {
     margin-bottom: 1rem;
 }
+
+.todo__text {
+    margin-right: 1rem;
+}
+
+.todo__task-check:checked + .todo__task-label {
+    text-decoration: line-through;
+}
+

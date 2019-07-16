@@ -4,7 +4,7 @@ const app = document.getElementById('todo-app');
 let taskTxt = null;
 let addTaskBtn = null;
 
-function createElement(name) {
+function el(name) {
     return document.createElement(name);
 }
 
@@ -18,9 +18,22 @@ function onAddBtnClick() {
 }
 
 function createTask() {
-    const div = createElement('div');
-    div.innerHTML = taskTxt.value;
-    app.appendChild(div);
+    let taskContainer = el('div');
+    taskContainer.classList.add('todo__task');
+
+    let taskCheck = el('input');
+    taskCheck.type = 'checkbox';
+    taskCheck.classList.add('todo__task-check');
+
+    let taskLabel = el('label');
+    taskLabel.classList.add('todo__task-label');
+
+    taskLabel.innerHTML = taskTxt.value;
+
+    taskContainer.appendChild(taskCheck);
+    taskContainer.appendChild(taskLabel);
+
+    app.appendChild(taskContainer);
 }
 
 function resetTaskTxt() {
@@ -28,12 +41,19 @@ function resetTaskTxt() {
 }
 
 function init() {
-    taskTxt = createElement('input');
-    app.appendChild(taskTxt);
+    let todoInputContainer = el('div');
+    todoInputContainer.classList.add('todo__input');
 
-    addTaskBtn = createElement('button');
+    taskTxt = el('input');
+    taskTxt.classList.add('todo__text');
+    todoInputContainer.appendChild(taskTxt);
+
+    addTaskBtn = el('button');
     addTaskBtn.innerText = 'Add';
-    app.appendChild(addTaskBtn);
+    addTaskBtn.classList.add('todo__savebtn');
+    todoInputContainer.appendChild(addTaskBtn);
+
+    app.appendChild(todoInputContainer);
 
     addTaskBtn.addEventListener('click', onAddBtnClick);
 }
