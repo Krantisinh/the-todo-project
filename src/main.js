@@ -1,15 +1,12 @@
-'use strict';
 
 const app = document.getElementById('todo-app');
-let taskTxt = null;
-let addTaskBtn = null;
 
-function el(name) {
-    return document.createElement(name);
-}
+const taskTxt = () => document.querySelector('.todo__text');
+const saveBtn = () => document.querySelector('.todo__savebtn');
 
 function onAddBtnClick() {
-    if (!taskTxt.value) {
+
+    if (!taskTxt().value) {
         return;
     }
 
@@ -18,44 +15,26 @@ function onAddBtnClick() {
 }
 
 function createTask() {
-    let taskContainer = el('div');
-    taskContainer.classList.add('todo__task');
 
-    let taskCheck = el('input');
-    taskCheck.type = 'checkbox';
-    taskCheck.classList.add('todo__task-check');
+    const template = document.querySelector('#todoTask');
+    const clonedNode = template.content.cloneNode(true);
+    clonedNode.querySelector('.todo__task-label').innerHTML = taskTxt().value;
 
-    let taskLabel = el('label');
-    taskLabel.classList.add('todo__task-label');
-
-    taskLabel.innerHTML = taskTxt.value;
-
-    taskContainer.appendChild(taskCheck);
-    taskContainer.appendChild(taskLabel);
-
-    app.appendChild(taskContainer);
+    app.appendChild(clonedNode);
 }
 
 function resetTaskTxt() {
-    taskTxt.value = '';
+    taskTxt().value = '';
 }
 
 function init() {
-    let todoInputContainer = el('div');
-    todoInputContainer.classList.add('todo__input');
 
-    taskTxt = el('input');
-    taskTxt.classList.add('todo__text');
-    todoInputContainer.appendChild(taskTxt);
+    const template = document.querySelector('#todoContainer');
+    const node = template.content.cloneNode(true);
 
-    addTaskBtn = el('button');
-    addTaskBtn.innerText = 'Add';
-    addTaskBtn.classList.add('todo__savebtn');
-    todoInputContainer.appendChild(addTaskBtn);
+    app.appendChild(node);
 
-    app.appendChild(todoInputContainer);
-
-    addTaskBtn.addEventListener('click', onAddBtnClick);
+    saveBtn().addEventListener('click', onAddBtnClick);
 }
 
 init();

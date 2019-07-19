@@ -9,7 +9,23 @@
 
     <body>
         <div id="todo-app"></div>
-        <script type="text/javascript" src="./main.js"></script>
+
+        <template id="todoContainer">
+            <div class="todo__input">
+                <input type="text" class="todo__text">
+                <button class="todo__savebtn">Add</button>
+            </div>
+        </template>
+
+        <template id="todoTask">
+            <div class="todo__task">
+                <input type="checkbox" class="todo__task-check">
+                <label class="todo__task-label"></label>
+            </div>
+        </template>
+
+        <script type="module" src="./main.js"></script>
+
     </body>
 
 </html>
