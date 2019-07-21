@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "tsc": "tsc -w"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "@hapi/inert": "^5.2.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "typescript": "^3.5.3"
   }
 }
