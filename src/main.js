@@ -16,11 +16,17 @@ function onAddBtnClick() {
 
 function createTask() {
 
-    const template = document.querySelector('#todoTask');
-    const clonedNode = template.content.cloneNode(true);
-    clonedNode.querySelector('.todo__task-label').innerHTML = taskTxt().value;
+    const taskTemplate = templateNode('#todoTask');
+    taskTemplate.querySelector('.todo__task-label').innerHTML = taskTxt().value;
 
-    app.appendChild(clonedNode);
+    app.appendChild(taskTemplate);
+}
+
+function templateNode(selector) {
+
+    const template = document.querySelector(selector);
+
+    return template.content.cloneNode(true);
 }
 
 function resetTaskTxt() {
@@ -29,10 +35,9 @@ function resetTaskTxt() {
 
 function init() {
 
-    const template = document.querySelector('#todoContainer');
-    const node = template.content.cloneNode(true);
+    const todoTemplate = templateNode('#todoContainer');
 
-    app.appendChild(node);
+    app.appendChild(todoTemplate);
 
     saveBtn().addEventListener('click', onAddBtnClick);
 }
