@@ -30,3 +30,6 @@ We will try to use vanilla javascript and avoid use of frameworks as much as pos
 4) Add a script to run tsc in watch mode
 5) Once npm run tsc is run, it'll convert any ts file in the `include` destination to js file. If sourceMaps option is set
     in tsconfig file, then corresponding source map will be generated.
+
+Observation:
+If you type safe your code properly, unit testing becomes easy. Lot of edge cases automatically get taken care of.
