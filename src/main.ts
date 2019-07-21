@@ -12,22 +12,20 @@ const SL_DEL_TASK_BTN = '.todo__task-delete'
 
 const app: HTMLElement = safeSelector(SL_APP);
 
-const taskTxt = () => <HTMLInputElement>safeSelector(SL_TASK_TEXT);
-const saveBtn = () => <HTMLButtonElement>safeSelector(SL_TASK_SAVE);
-const taskTemplate = (): HTMLElement => <HTMLElement>templateNode(SL_TASK_TEMPLATE);
-
 function init(): void {
 
     const todoTemplate = templateNode(SL_TODO_CONT_TEMPLATE);
 
     app.appendChild(todoTemplate);
 
-    saveBtn().addEventListener('click', onAddBtnClick);
+    const saveBtn = <HTMLButtonElement>safeSelector(SL_TASK_SAVE);
+
+    saveBtn.addEventListener('click', onAddBtnClick);
 }
 
 function onAddBtnClick(): void {
 
-    const text: HTMLInputElement = taskTxt();
+    const text: HTMLInputElement = <HTMLInputElement>safeSelector(SL_TASK_TEXT);
 
     if (!text.value) {
         return;
@@ -40,7 +38,7 @@ function onAddBtnClick(): void {
 
 function getTaskTemplate(text: HTMLInputElement): HTMLElement {
 
-    const template = taskTemplate();
+    const template = <HTMLElement>templateNode(SL_TASK_TEMPLATE);
     const task = safeSelector(SL_TASK, template);
     const label = safeSelector(SL_TASK_LABEL, template);
 
