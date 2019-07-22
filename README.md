@@ -56,3 +56,5 @@ Its default conventions are -
 
 When we run npx webpack, it'll look for the entry file, gather all its dependencies, bundle them, uglify and minify the code and
 place the resultant main.js file inside the dist folder.
+
+We can override these defaults with webpack.config file.
