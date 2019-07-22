@@ -1,14 +1,14 @@
-// import { v4 as uuid } from 'uuid';
-// const uuid = require('uuid');
+// import { v4 as uuid } from '../node_modules/uuid/v4.js';
+// const uuid = require('uuid/v4');
 
-const SL_APP = '#todo-app';
-const SL_TASK_TEXT = '.todo__text';
-const SL_TASK_SAVE = '.todo__savebtn';
-const SL_TASK = '.todo__task';
-const SL_TASK_LABEL = '.todo__task-label';
-const SL_TASK_TEMPLATE = '#todoTask';
-const SL_TODO_CONT_TEMPLATE = '#todoContainer';
-const SL_DEL_TASK_BTN = '.todo__task-delete'
+const SL_APP: string = '#todo-app';
+const SL_TASK_TEXT: string = '.todo__text';
+const SL_TASK_SAVE: string = '.todo__savebtn';
+const SL_TASK: string = '.todo__task';
+const SL_TASK_LABEL: string = '.todo__task-label';
+const SL_TASK_TEMPLATE: string = '#todoTask';
+const SL_TODO_CONT_TEMPLATE: string = '#todoContainer';
+const SL_DEL_TASK_BTN: string = '.todo__task-delete'
 
 const app: HTMLElement = safeSelector(SL_APP);
 
@@ -45,12 +45,13 @@ function getTaskTemplate(text: HTMLInputElement): HTMLElement {
     label.innerHTML = text.value;
 
     // Generate key using uuid.
+    // const key2 = uuid();
     const key: string = Math.random().toString();
     task.setAttribute('key', key);
 
-    const delBt = safeSelector(SL_DEL_TASK_BTN, template);
+    const delTaskEl = safeSelector(SL_DEL_TASK_BTN, template);
 
-    delBt.addEventListener('click', deleteTask(key));
+    delTaskEl.addEventListener('click', deleteTask(key));
 
     return template;
 }

@@ -33,3 +33,15 @@ We will try to use vanilla javascript and avoid use of frameworks as much as pos
 
 Observation:
 If you type safe your code properly, unit testing becomes easy. Lot of edge cases automatically get taken care of.
+
+### Module Bundlers
+
+The require syntax comes from commonjs module system. However browsers do not understand commonjs. They need es module systems. Module Bundlers
+can help transalte commonjs modules in to es modules. Module bundlers take pieces of javascript files and bundle them in to a single file.
+
+Module bundlers like webpack do one or more of the below things in addition to bundling:
+1) Minification/Uglification of code
+2) Transformations through plugins (e.g. ts to js, sass to css, etc.)
+3) Tree shaking (dead code elimination)
+3) Code Splitting (chunks)
+4) Dev Server and an optional hot module replacement (HMR).

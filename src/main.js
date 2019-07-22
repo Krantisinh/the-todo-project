@@ -1,6 +1,6 @@
 "use strict";
-// import { v4 as uuid } from 'uuid';
-// const uuid = require('uuid');
+// import { v4 as uuid } from '../node_modules/uuid/v4.js';
+// const uuid = require('uuid/v4');
 const SL_APP = '#todo-app';
 const SL_TASK_TEXT = '.todo__text';
 const SL_TASK_SAVE = '.todo__savebtn';
@@ -30,10 +30,11 @@ function getTaskTemplate(text) {
     const label = safeSelector(SL_TASK_LABEL, template);
     label.innerHTML = text.value;
     // Generate key using uuid.
+    // const key2 = uuid();
     const key = Math.random().toString();
     task.setAttribute('key', key);
-    const delBt = safeSelector(SL_DEL_TASK_BTN, template);
-    delBt.addEventListener('click', deleteTask(key));
+    const delTaskEl = safeSelector(SL_DEL_TASK_BTN, template);
+    delTaskEl.addEventListener('click', deleteTask(key));
     return template;
 }
 function deleteTask(key) {
