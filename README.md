@@ -40,8 +40,19 @@ The require syntax comes from commonjs module system. However browsers do not un
 can help transalte commonjs modules in to es modules. Module bundlers take pieces of javascript files and bundle them in to a single file.
 
 Module bundlers like webpack do one or more of the below things in addition to bundling:
+
 1) Minification/Uglification of code
 2) Transformations through plugins (e.g. ts to js, sass to css, etc.)
 3) Tree shaking (dead code elimination)
 3) Code Splitting (chunks)
 4) Dev Server and an optional hot module replacement (HMR).
+
+By default, without any config, webpack provides bundling, minification and uglification of js files.
+Its default conventions are -
+
+1) You should have index.html in dist folder
+2) index.js as entry file and should be present in src folder
+3) The resultant file will be named as main.js and will be placed automatically inside the dist folder.
+
+When we run npx webpack, it'll look for the entry file, gather all its dependencies, bundle them, uglify and minify the code and
+place the resultant main.js file inside the dist folder.

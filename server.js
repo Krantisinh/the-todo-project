@@ -16,7 +16,7 @@ const init = async () => {
         path:'/',
         handler: (request, h) => {
 
-            return h.file('./src/index.html');
+            return h.file('./dist/index.html');
         }
     });
 
@@ -25,7 +25,7 @@ const init = async () => {
         path:'/{param*}',
         handler: {
             directory: {
-                path: './src',
+                path: './dist',
                 listing: false
             }
         }

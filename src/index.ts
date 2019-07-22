@@ -1,5 +1,4 @@
-// import { v4 as uuid } from '../node_modules/uuid/v4.js';
-// const uuid = require('uuid/v4');
+const uuid = require('uuid/v4');
 
 const SL_APP: string = '#todo-app';
 const SL_TASK_TEXT: string = '.todo__text';
@@ -44,9 +43,7 @@ function getTaskTemplate(text: HTMLInputElement): HTMLElement {
 
     label.innerHTML = text.value;
 
-    // Generate key using uuid.
-    // const key2 = uuid();
-    const key: string = Math.random().toString();
+    const key = uuid();
     task.setAttribute('key', key);
 
     const delTaskEl = safeSelector(SL_DEL_TASK_BTN, template);

@@ -1,6 +1,5 @@
 "use strict";
-// import { v4 as uuid } from '../node_modules/uuid/v4.js';
-// const uuid = require('uuid/v4');
+const uuid = require('uuid/v4');
 const SL_APP = '#todo-app';
 const SL_TASK_TEXT = '.todo__text';
 const SL_TASK_SAVE = '.todo__savebtn';
@@ -29,9 +28,7 @@ function getTaskTemplate(text) {
     const task = safeSelector(SL_TASK, template);
     const label = safeSelector(SL_TASK_LABEL, template);
     label.innerHTML = text.value;
-    // Generate key using uuid.
-    // const key2 = uuid();
-    const key = Math.random().toString();
+    const key = uuid();
     task.setAttribute('key', key);
     const delTaskEl = safeSelector(SL_DEL_TASK_BTN, template);
     delTaskEl.addEventListener('click', deleteTask(key));
@@ -66,4 +63,4 @@ function error(selector) {
     throw new Error(`Element with selector ${selector} not present in the DOM.`);
 }
 init();
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=index.js.map
