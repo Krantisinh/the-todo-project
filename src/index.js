@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("./style.css");
 const uuid = require('uuid/v4');
 const SL_APP = '#todo-app';
 const SL_TASK_TEXT = '.todo__text';

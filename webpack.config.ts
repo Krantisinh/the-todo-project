@@ -1,7 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+import webpack = require("webpack");
+
 const path = require('path');
-const config = {
+
+const config: webpack.Configuration = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
@@ -19,5 +20,5 @@ const config = {
         ]
     }
 };
+
 module.exports = config;
-//# sourceMappingURL=webpack.config.js.map

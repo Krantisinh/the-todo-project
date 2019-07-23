@@ -1,3 +1,4 @@
+import './style.css';
 const uuid = require('uuid/v4');
 
 const SL_APP: string = '#todo-app';
