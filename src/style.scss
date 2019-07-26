@@ -1,0 +1,24 @@
+#todo-app {
+    padding: 1.5rem;
+}
+
+.todo {
+    &__input {
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        margin-right: 1rem;
+    }
+
+    &__task {
+        &-delete {
+            color: blue;
+            cursor: pointer;
+        }
+
+        &-check:checked + &-label {
+            text-decoration: line-through;
+        }
+    }
+}

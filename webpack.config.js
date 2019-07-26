@@ -3,7 +3,10 @@ const HtmlWebpackPlugin =  require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
-    entry: './src/index.ts',
+    entry: [
+        './src/index.ts',
+        './src/style.scss'
+    ],
     output: {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
@@ -11,10 +14,11 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader'
                 ]
             },
             {
@@ -24,15 +28,25 @@ const config = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name].[chunkhash].css',
-            chunkFilename: '[id].css',
-            ignoreOrder: false, // Enable to remove warnings about conflicting order
-        })
+        htmlWebpackPlugin(),
+        miniCSSExtractPlugin()
     ]
 };
+
+function miniCSSExtractPlugin() {
+
+    return new MiniCssExtractPlugin({
+        filename: '[name].[chunkhash].css',
+        chunkFilename: '[id].css',
+        ignoreOrder: false,
+    });
+}
+
+function htmlWebpackPlugin() {
+
+    return new HtmlWebpackPlugin({
+        template: './src/index.html'
+    });
+}
 
 module.exports = config;

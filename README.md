@@ -61,7 +61,8 @@ We can override these defaults with webpack.config file.
 
 Webpack is a very powerful tool for front end development. The basic goal is to bundle all css and js together and keep them in dist folder. Webpack by default supports
 bundling of js files. If we want to bundle css, we can use css-loader. It bundles the css and keeps it in bundled js file. If we want to extract this css out and keep it in
-a separate file, we can do so with mini-css-extract-plugin. If we're using typescript, we can transform it to js using ts-loader.
+a separate file, we can do so with mini-css-extract-plugin. If we are using sass as preprocessor, we can have sass-loader in the css loaders pipeline to convert our
+sass files to css ones. If we're using typescript, we can transform it to js using ts-loader.
 
 It will be awesome if generated js and css bundles get referenced in our index.html automatically. Webpack helps us do that too! Using html-webpack-plugin,
 we can generate a new html file, it can be based of the template provided and it gets placed in the output directory. The bundled js and css file references tooget copied
