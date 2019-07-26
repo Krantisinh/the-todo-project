@@ -31,7 +31,7 @@ function getTaskTemplate(text) {
     const label = safeSelector(SL_TASK_LABEL, template);
     label.innerHTML = text.value;
     const key = uuid();
-    task.setAttribute('key', key);
+    task.setAttribute('data-key', key);
     const delTaskEl = safeSelector(SL_DEL_TASK_BTN, template);
     delTaskEl.addEventListener('click', deleteTask(key));
     return template;
@@ -40,7 +40,7 @@ function deleteTask(key) {
     return () => {
         const tasks = app.querySelectorAll(SL_TASK);
         tasks.forEach((x) => {
-            if (x.getAttribute('key') === key) {
+            if (x.dataset['key'] === key) {
                 x.parentElement.removeChild(x);
             }
         });

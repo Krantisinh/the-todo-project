@@ -1,4 +1,4 @@
-import webpack = require("webpack");
+import webpack = require('webpack');
 
 const path = require('path');
 
@@ -11,7 +11,7 @@ const config: webpack.Configuration = {
     module: {
         rules: [
             {
-                test: /.\css$/,
+                test: /\.css$/,
                 use: [
                     'style-loader',
                     'css-loader'

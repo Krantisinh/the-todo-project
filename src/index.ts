@@ -45,7 +45,7 @@ function getTaskTemplate(text: HTMLInputElement): HTMLElement {
     label.innerHTML = text.value;
 
     const key = uuid();
-    task.setAttribute('key', key);
+    task.setAttribute('data-key', key);
 
     const delTaskEl = safeSelector(SL_DEL_TASK_BTN, template);
 
@@ -56,10 +56,10 @@ function getTaskTemplate(text: HTMLInputElement): HTMLElement {
 
 function deleteTask(key: string): EventListenerOrEventListenerObject {
     return () => {
-        const tasks = app!.querySelectorAll(SL_TASK);
+        const tasks = app!.querySelectorAll(SL_TASK) as unknown as HTMLElement[];
 
-        tasks.forEach((x: Element) => {
-            if (x.getAttribute('key') === key) {
+        tasks.forEach((x) => {
+            if (x.dataset['key'] === key) {
                 x.parentElement!.removeChild(x);
             }
         });
