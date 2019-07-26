@@ -1,30 +1,36 @@
 const path = require('path');
-const htmlWebpackPlugin =  require('html-webpack-plugin');
+const HtmlWebpackPlugin =  require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
     entry: './src/index.ts',
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                use: ['ts-loader']
-            },
-            {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
+            },
+            {
+                test: /\.ts$/,
+                use: ['ts-loader']
             }
         ]
     },
     plugins: [
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: './src/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[chunkhash].css',
+            chunkFilename: '[id].css',
+            ignoreOrder: false, // Enable to remove warnings about conflicting order
         })
     ]
 };
