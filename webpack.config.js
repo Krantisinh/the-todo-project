@@ -1,14 +1,17 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const path = require('path');
+
 const config = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                use: ['ts-loader']
+            },
             {
                 test: /\.css$/,
                 use: [
@@ -19,5 +22,5 @@ const config = {
         ]
     }
 };
+
 module.exports = config;
-//# sourceMappingURL=webpack.config.js.map
