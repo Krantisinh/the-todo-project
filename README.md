@@ -42,7 +42,7 @@ can help transalte commonjs modules in to es modules. Module bundlers take piece
 Module bundlers like webpack do one or more of the below things in addition to bundling:
 
 1) Minification/Uglification of code
-2) Transformations through plugins (e.g. ts to js, sass to css, etc.)
+2) Transformations through loaders and plugins (e.g. ts to js, sass to css, etc.)
 3) Tree shaking (dead code elimination)
 3) Code Splitting (chunks)
 4) Dev Server and an optional hot module replacement (HMR).
@@ -58,3 +58,13 @@ When we run npx webpack, it'll look for the entry file, gather all its dependenc
 place the resultant main.js file inside the dist folder.
 
 We can override these defaults with webpack.config file.
+
+Webpack is a very powerful tool for front end development. The basic goal is to bundle all css and js together and keep them in dist folder. Webpack by default supports
+bundling of js files. If we want to bundle css, we can use css-loader. It bundles the css and keeps it in bundled js file. If we want to extract this css out and keep it in
+a separate file, we can do so with mini-css-extract-plugin. If we're using typescript, we can transform it to js using ts-loader.
+
+It will be awesome if generated js and css bundles get referenced in our index.html automatically. Webpack helps us do that too! Using html-webpack-plugin,
+we can generate a new html file, it can be based of the template provided and it gets placed in the output directory. The bundled js and css file references tooget copied
+in the generated html file.
+
+Now, with just a single command webpack -w, all our source code gets bundled and copied in the dist folder as we type the code. Literally no other effort is required!
