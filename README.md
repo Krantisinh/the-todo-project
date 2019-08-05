@@ -69,3 +69,13 @@ we can generate a new html file, it can be based of the template provided and it
 in the generated html file.
 
 Now, with just a single command webpack -w, all our source code gets bundled and copied in the dist folder as we type the code. Literally no other effort is required!
+
+### Testing
+
+Cypress is more like a E2E tool and an integration testing tool.
+
+## Selenium vs Cypress
+
+Selenium hooks into browser and starts testing.
+Cypress internally launches its own browser and runs the in-browser tool.
+
