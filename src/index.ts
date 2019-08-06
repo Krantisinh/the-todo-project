@@ -8,6 +8,7 @@ const SL_TASK_LABEL: string = '.todo__task-label';
 const SL_TASK_TEMPLATE: string = '#todoTask';
 const SL_TODO_CONT_TEMPLATE: string = '#todoContainer';
 const SL_DEL_TASK_BTN: string = '.todo__task-delete'
+const SL_TASKS_CONTAINER: string = '.todo__tasks'
 
 const app: HTMLElement = safeSelector(SL_APP);
 
@@ -30,7 +31,9 @@ function onAddBtnClick(): void {
         return;
     }
 
-    app!.appendChild(getTaskTemplate(text));
+    const taskContainer = safeSelector(SL_TASKS_CONTAINER);
+
+    taskContainer!.appendChild(getTaskTemplate(text));
 
     resetValue(text);
 }

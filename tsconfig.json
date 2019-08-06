@@ -78,7 +78,7 @@
 	},
 
 	"include": [
-		"./**/*.ts",
+		"./**/*.ts", "cypress/integration/my.spec.ts",
 	],
 	"exclude": [
 		"node_modules"
