@@ -1,7 +1,7 @@
 describe('my-test', () => {
 
     beforeEach(() => {
-        cy.visit('http://localhost:3000');
+        cy.visit('/');
     })
 
     it('Title and header check', () => {
